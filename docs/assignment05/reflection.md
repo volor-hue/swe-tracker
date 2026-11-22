@@ -1,0 +1,9 @@
+I used Grok Bot v4.7 as the only AI assistant. It does not load AGENTS.md automatically, so I pasted the relevant AGENTS.md sections, the repository tree, the source files, the tests and the real baseline outputs from pytest, ruff, mypy, build and pip-audit into its context for every request. The review prompt also said it was read-only.
+
+The most useful suggestion was finding F1: NaN amounts pass float() and make the comparison spent > limit false, so the budget alert silently disappears. I reproduced it on the command line, wrote failing regression tests, and only then accepted the fix.
+
+Two suggestions were weak. The claimed CSV formula injection (F7) was unsupported: when I ran the export, only normalized category names and amounts appeared, never descriptions. The Strategy refactor the assistant proposed also looked correct and kept every acceptance test green, but mypy later reported three new errors because a frozen dataclass field does not satisfy a Protocol attribute. The tests passing did not prove the change was correct; the type checker caught what the tests missed.
+
+I personally ran every command, compared the before and after totals (3 tests at baseline, 12 passed and 18 failed before the mitigations, 30 passed after), and checked that every confirmed finding has a file and line plus a repro command. The failing tests decided the ranking: R1 and R2 had real failing behaviour, so they were mitigated first, while R4 stayed plausible because I did not reproduce it.
+
+The repository instructions helped. Safe commands, forbidden actions and review gates kept the changes small and kept dependency pinning as a human decision. Next time I would add CI and pinned versions first, so that the agent's claims are checked automatically instead of depending on me remembering to run the checks.

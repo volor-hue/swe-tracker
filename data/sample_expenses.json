@@ -1,0 +1,11 @@
+{
+  "expenses": [
+    {"date": "2026-10-05", "amount": 15000.0, "category": "food", "description": "fictional groceries"},
+    {"date": "2026-10-12", "amount": 3000.0, "category": "transport", "description": "fictional bus card"},
+    {"date": "2026-11-02", "amount": 12500.0, "category": "food", "description": "fictional cafe"},
+    {"date": "2026-11-04", "amount": 90000.0, "category": "housing", "description": "fictional rent"},
+    {"date": "2026-11-09", "amount": 4200.0, "category": "transport", "description": "fictional taxi"},
+    {"date": "2026-11-15", "amount": 6000.0, "category": "entertainment", "description": "fictional cinema"}
+  ],
+  "budgets": {"food": 10000.0, "transport": 8000.0}
+}
