@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "expense-tracker"
+version = "0.1.0"
+description = "Small CLI expense tracker (fictional data only)"
+requires-python = ">=3.10"
+
+[project.scripts]
+expense-tracker = "expense_tracker.cli:main"
+
+[tool.setuptools]
+packages = ["expense_tracker"]
